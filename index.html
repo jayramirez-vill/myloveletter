@@ -1,83 +1,104 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>For My Fav Person 💗</title>
-
-    <style>
-        body {
-            background: #ffe6ec;
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding: 40px 15px;
-        }
-
-        .letter {
-            background: white;
-            padding: 30px;
-            max-width: 450px;
-            margin: auto;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px #dbaab5;
-        }
-
-        h1 {
-            color: #e75480;
-        }
-
-        p {
-            color: #555;
-            line-height: 1.8;
-        }
-
-        button {
-            background: #e75480;
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 20px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background: #d94370;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paraluman ♡</title>
+<style>
+:root{--pink:#ff8fbd;--deep:#100b16;--muted:#c8b8c9}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;font-family:Georgia,serif;color:#fff;background:radial-gradient(circle at 50% 15%,#56304e 0,#211526 38%,#0c0911 100%);overflow-x:hidden}
+.hearts{position:fixed;inset:0;pointer-events:none;overflow:hidden}
+.heart{position:absolute;bottom:-30px;color:#ff9bc6;opacity:.45;animation:float 10s linear infinite}
+@keyframes float{to{transform:translateY(-115vh) rotate(25deg);opacity:0}}
+main{width:min(920px,92%);margin:40px auto;padding:28px;border:1px solid #ffffff22;border-radius:28px;background:#100b16b8;box-shadow:0 20px 80px #0008;backdrop-filter:blur(12px)}
+header{text-align:center;margin-bottom:26px}
+.eyebrow{color:var(--pink);letter-spacing:4px;text-transform:uppercase;font:11px Arial,sans-serif}
+h1{font-size:clamp(38px,8vw,64px);font-weight:normal;margin:8px 0}
+.subtitle{color:var(--muted);font:14px Arial,sans-serif}
+.layout{display:grid;grid-template-columns: minmax(220px, .85fr) 1.15fr;gap:28px;align-items:start}
+.cover{aspect-ratio:1;border-radius:22px;background:linear-gradient(145deg,#f5a6c8,#69405f 55%,#211729);display:grid;place-items:center;box-shadow:0 15px 45px #0007;position:relative;overflow:hidden}
+.cover:before,.cover:after{content:"";position:absolute;border:1px solid #ffffff55;border-radius:50%;width:75%;height:75%}
+.cover:after{width:55%;height:55%}
+.cover span{font-size:78px;text-shadow:0 5px 20px #54213d;z-index:1}
+.song{text-align:center;margin:18px 0 12px}
+.song strong{display:block;font-size:22px;font-weight:normal}
+.song small{display:block;color:var(--muted);font:13px Arial,sans-serif;margin-top:6px}
+.controls{display:flex;align-items:center;justify-content:center;gap:18px;margin:18px 0}
+button{border:0;cursor:pointer;color:#24111d;background:var(--pink);border-radius:50%;width:54px;height:54px;font-size:22px;box-shadow:0 5px 25px #ff8fbd44}
+button:active{transform:scale(.96)}
+.time{display:flex;justify-content:space-between;color:var(--muted);font:11px Arial,sans-serif;margin-top:8px}
+input[type=range]{width:100%;accent-color:var(--pink);cursor:pointer}
+.lyrics{border-left:1px solid #ffffff25;padding-left:26px;min-height:390px}
+.lyrics h2{font-weight:normal;color:var(--pink);margin:0 0 8px}
+.hint{font:12px Arial,sans-serif;color:var(--muted);line-height:1.6}
+#lyricLines{height:310px;overflow-y:auto;scroll-behavior:smooth;padding:35px 8px 35px 0}
+.line{font-size:19px;line-height:1.5;color:#bbaebb;padding:10px 0;transition:.25s}
+.line.active{color:#fff;font-size:23px;text-shadow:0 0 18px #ff8fbd; transform:scale(1.02);transform-origin:left}
+details{margin-top:22px;border-top:1px solid #ffffff22;padding-top:14px}
+summary{cursor:pointer;color:var(--pink);font:13px Arial,sans-serif}
+textarea{width:100%;min-height:115px;margin-top:12px;background:#211827;color:white;border:1px solid #ffffff30;border-radius:12px;padding:12px;font:13px monospace}
+.save-note{font:12px Arial,sans-serif;color:var(--muted);line-height:1.5}
+footer{text-align:center;color:#9d879c;font:11px Arial,sans-serif;margin-top:26px}
+@media(max-width:650px){main{margin:16px auto;padding:20px}.layout{grid-template-columns:1fr}.cover{max-width:280px;margin:auto}.lyrics{border-left:0;border-top:1px solid #ffffff25;padding:22px 0 0}.lyrics #lyricLines{height:260px}}
+</style>
 </head>
-
 <body>
-
-<div class="letter">
-
-    <h1>For My Fav Person 💗</h1>
-
-    <p>
-        Hi, my baby! 💗
-    </p>
-
-    <p>
-        I just want to remind how special you are to me and how im so lucky to have like you.
-        Thankyou for being part of my life everyday.
-        I really appreciate you more than words can express.
-    </p>
-
-    <p>
-        I hope hindi mo makalimutan kung gaano ka valuable sakin at gaano ako ka thankful na andyan ka.
-        Palagi kitang papahalagahan at iingatan kahit anong mangyari.
-    </p>
-
-    <h2>I Love You So Muchhh! 💗</h2>
-
-    <button type="button" onclick="showLove()">
-        Click Me 💌
-    </button>
-
+<div class="hearts" id="hearts"></div>
+<main>
+<header><div class="eyebrow">a little song for you</div><h1>Paraluman ♡</h1><div class="subtitle">a little corner filled with music</div></header>
+<section class="layout">
+<div>
+  <div class="cover"><span>♡</span></div>
+  <div class="song"><strong>Paraluman</strong><small>Adie</small></div>
+  <audio id="audio" src="paraluman.mp3" preload="metadata"></audio>
+  <div class="controls"><button id="play" aria-label="Play">▶</button></div>
+  <input id="seek" type="range" min="0" max="100" value="0">
+  <div class="time"><span id="current">0:00</span><span id="duration">0:00</span></div>
 </div>
-
+<div class="lyrics">
+  <h2>Lyrics</h2>
+  <div class="hint">The music player is ready. Add your own lyric lines and timestamps below to make them follow the song.</div>
+  <div id="lyricLines">
+    <div class="line">♪ Let the music play…</div>
+    <div class="line">Add your lyrics below to begin.</div>
+  </div>
+</div>
+</section>
+<details>
+  <summary>＋ Add / edit your synced lyrics</summary>
+  <p class="save-note">One line per row, using this format: <b>seconds|your lyric line</b><br>Example: <code>12|Your first line here</code><br>Use seconds from the start of the song. Paste lyrics you have permission to use.</p>
+  <textarea id="editor" placeholder="0|Your first line&#10;8|Your next line&#10;15|Another line"></textarea>
+  <button id="load" style="width:auto;height:auto;border-radius:20px;padding:11px 18px;font:13px Arial,sans-serif;margin-top:10px">Load lyrics</button>
+  <p class="save-note">Your entries stay in this page while it is open. To keep them permanently, edit the <code>lyricsData</code> section in index.html.</p>
+</details>
+<footer>Made with ♡</footer>
+</main>
 <script>
-    function showLove() {
-        alert("I LOVE YOU MORE THAN SO MUCH, MY BABY! 💗");
-    }
+const audio=document.getElementById('audio'), play=document.getElementById('play');
+const seek=document.getElementById('seek'), current=document.getElementById('current'), duration=document.getElementById('duration');
+const lyricLines=document.getElementById('lyricLines'), editor=document.getElementById('editor');
+let lyricsData=[];
+function stamp(s){s=Math.floor(s||0);return Math.floor(s/60)+':'+String(s%60).padStart(2,'0')}
+play.addEventListener('click',()=>{if(audio.paused){audio.play();}else{audio.pause();}});
+audio.addEventListener('play',()=>play.textContent='Ⅱ');
+audio.addEventListener('pause',()=>play.textContent='▶');
+audio.addEventListener('loadedmetadata',()=>duration.textContent=stamp(audio.duration));
+audio.addEventListener('timeupdate',()=>{
+ current.textContent=stamp(audio.currentTime);
+ if(audio.duration)seek.value=audio.currentTime/audio.duration*100;
+ const active=lyricsData.findLastIndex(x=>x.time<=audio.currentTime);
+ [...lyricLines.children].forEach((el,i)=>el.classList.toggle('active',i===active));
+ if(active>=0){const el=lyricLines.children[active];lyricLines.scrollTo({top:el.offsetTop-lyricLines.offsetTop-120,behavior:'smooth'});}
+});
+seek.addEventListener('input',()=>{if(audio.duration)audio.currentTime=seek.value/100*audio.duration});
+document.getElementById('load').addEventListener('click',()=>{
+ const parsed=editor.value.split('\n').map(row=>{const p=row.indexOf('|');if(p<1)return null;const t=Number(row.slice(0,p).trim());const text=row.slice(p+1).trim();return Number.isFinite(t)&&text?{time:t,text}:null}).filter(Boolean).sort((a,b)=>a.time-b.time);
+ lyricsData=parsed;lyricLines.innerHTML='';
+ if(!parsed.length){lyricLines.innerHTML='<div class="line">No lyric lines loaded yet.</div>';return;}
+ parsed.forEach(item=>{const el=document.createElement('div');el.className='line';el.textContent=item.text;lyricLines.appendChild(el)});
+});
+for(let i=0;i<16;i++){const h=document.createElement('span');h.className='heart';h.textContent='♥';h.style.left=Math.random()*100+'%';h.style.animationDelay=(Math.random()*10)+'s';h.style.animationDuration=(8+Math.random()*8)+'s';h.style.fontSize=(10+Math.random()*16)+'px';document.getElementById('hearts').appendChild(h)}
 </script>
-
 </body>
 </html>
